@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/hakeem1106/morearray/issues"
   },
-  "homepage": "https://github.com/hakeem1106/morearray#readme"
+  "homepage": "https://github.com/hakeem1106/morearray#readme",
+  "dependencies": {
+    "node.js": "0.0.0"
+  }
 }
