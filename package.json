@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/hakeem1106/morearray#readme",
   "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.5.1",
     "node.js": "0.0.0"
   }
 }
