@@ -17,7 +17,9 @@ const user = mongoose.Schema({
     new: Boolean
 });
 
-const newUser = mongoose.model('User', user, Customer )
+const Person = mongoose.model('User', user, Customer );
+
+const newUser = new Person({});
 
 
 
