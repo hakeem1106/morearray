@@ -1,12 +1,23 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb+srv://hakeem1106:Megan1106@@testclust-w12h6.mongodb.net/test?retryWrites=true'
-
-mongoose.connect(url,{useNewUrlParser:true});
+mongoose.connect('mongodb+srv://hakeem1106:Autumn1106@testclust-w12h6.mongodb.net/test?retryWrites=true',{useNewUrlParser:true});
 
 const db = mongoose.connection;
 
-db.open
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', ()=>{
+    console.log("Connected");
+});
+
+const user = mongoose.Schema({
+    email: String,
+    name: String,
+    phone: Number,
+    new: Boolean
+});
+
+const newUser = mongoose.model('User', user, )
 
 
 
