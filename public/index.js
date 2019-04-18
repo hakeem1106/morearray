@@ -4,8 +4,9 @@ const userEmail = document.createElement("input");
 const userName = document.createElement("input");
 const userPhone = document.createElement("input");
       
-segment.appendChild(form).setAttribute("method", 'POST')    
-    
+segment.appendChild(form).setAttribute("method", 'POST') 
+
+form.setAttribute("action", "/connect")    
 form.appendChild(userEmail);
 form.appendChild(userName);
 form.appendChild(userPhone);
