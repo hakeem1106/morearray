@@ -25,7 +25,7 @@ const user = mongoose.Schema({
 
 const Person = mongoose.model('User', user, 'Customer' );
 
-const newUser = new Person({});
+
 
 //app.get('/', function (req, res) {
 
@@ -39,7 +39,15 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(__dirname + '/public'));
 
-app.post("/connect", (req,res)=>{
+app.post("/app", (req,res)=>{
+    const newUser = new Person(req.body);
+    newUser.save()
+    .then(item=>{
+        res.send("saved")
+    })
+    .catch(err=>{
+        res.status(400).send("cant save. fix it.")
+    })
 
 })
 
