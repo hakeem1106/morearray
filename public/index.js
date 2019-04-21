@@ -7,6 +7,10 @@ const segment = document.getElementById('root'),
 
 segment.appendChild(form).setAttribute("method", 'POST')
 
+userEmail.setAttribute('id', "email");
+userName.setAttribute('id', "name");
+userPhone.setAttribute('id', "phone");
+
 form.setAttribute("action", "/index")
 form.appendChild(userEmail);
 form.appendChild(userName);

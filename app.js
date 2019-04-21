@@ -1,12 +1,12 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 const bodyParser= require('body-parser');
 const mongoose = require('mongoose');
 
 
 
 
-mongoose.connect('mongodb+srv://hakeem1106:Autumn1106@testclust-w12h6.mongodb.net/test?retryWrites=true',{useNewUrlParser:true});
+mongoose.connect('mongodb+srv://hakeem1106:Autumn1106@testclust-w12h6.mongodb.net/UserName?retryWrites=true',{useNewUrlParser:true});
 
 const db = mongoose.connection;
 
@@ -16,16 +16,7 @@ db.once('open', ()=>{
     console.log("Connected");
 });
 
-const user = mongoose.Schema({
-    email: String,
-    name: String,
-    phone: Number,
-    new: Boolean
-});
-
-const Person = mongoose.model('User', user, 'Customer' );
-
-
+let User = require('./models/user');
 
 //app.get('/', function (req, res) {
 
@@ -34,20 +25,25 @@ const Person = mongoose.model('User', user, 'Customer' );
 app.use( bodyParser.json());
 
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 
 app.use(express.static(__dirname + '/public'));
 
-app.post("/app", (req,res)=>{
-    const newUser = new Person(req.body);
-    newUser.save()
-    .then(item=>{
-        res.send("saved")
+app.post("/index", (req,res)=>{
+    let user = new User();
+    user.email = req.body.email;
+    user.name = req.body.name;
+    user.phone = req.body.phone;
+
+    res.send("saved")
+
+    user.save((err)=>{
+        console.log(err);
+        return;
     })
-    .catch(err=>{
-        res.status(400).send("cant save. fix it.")
-    })
+
+    
 
 })
 
