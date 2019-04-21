@@ -7,9 +7,9 @@ const segment = document.getElementById('root'),
 
 segment.appendChild(form).setAttribute("method", 'POST')
 
-userEmail.setAttribute('id', "email");
-userName.setAttribute('id', "name");
-userPhone.setAttribute('id', "phone");
+userEmail.setAttribute('name', "email");
+userName.setAttribute('name', "name");
+userPhone.setAttribute('name', "phone");
 
 form.setAttribute("action", "/index")
 form.appendChild(userEmail);
@@ -22,6 +22,7 @@ form.appendChild(subBut);
 userEmail.setAttribute("placeholder", "E-Mail");
 userName.setAttribute("placeholder", "Name");
 userPhone.setAttribute("placeholder", "Phone");
+subBut.setAttribute("type","submit")
 subBut.innerHTML = "Submit";
 
 

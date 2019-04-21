@@ -25,17 +25,17 @@ let User = require('./models/user');
 app.use( bodyParser.json());
 
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
 
 app.use(express.static(__dirname + '/public'));
 
 app.post("/index", (req,res)=>{
-    let user = new User();
+    let user = new User(req.body);
+    console.log(req.body)
     user.email = req.body.email;
     user.name = req.body.name;
-    user.phone = req.body.phone;
-
+    user.number = req.body.phone;
     res.send("saved")
 
     user.save((err)=>{
