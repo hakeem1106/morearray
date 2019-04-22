@@ -15,7 +15,7 @@ form.appendChild(userName);
 form.appendChild(passWord);
 form.appendChild(subBut);
 
-passWord.
+
 
 
 
