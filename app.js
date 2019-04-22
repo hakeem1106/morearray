@@ -30,12 +30,14 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(__dirname + '/public'));
 
+//Post user data to database
+
 app.post("/index", (req,res)=>{
     let user = new User(req.body);
     console.log(req.body)
-    user.email = req.body.email;
-    user.name = req.body.name;
-    user.number = req.body.phone;
+    user.username = req.body.username;
+    user.password = req.body.password;
+
     res.send("saved")
 
     user.save((err)=>{
@@ -43,8 +45,9 @@ app.post("/index", (req,res)=>{
         return;
     })
 
-    
+
 
 })
 
 app.listen(3000);
+module.exports =  db;
