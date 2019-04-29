@@ -1,4 +1,4 @@
-const segment = document.getElementById('root'),
+/*const segment = document.getElementById('root'),
       form = document.createElement("form"),
       userName = document.createElement("input"),
       passWord = document.createElement("input"),
@@ -25,3 +25,10 @@ subBut.setAttribute("type","submit")
 subBut.innerHTML = "Submit";
 
 
+*/
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Login from './modules/login'
+
+ReactDOM.render(<Login />,document.getElementById('root'));
