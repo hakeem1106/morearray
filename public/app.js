@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser= require('body-parser');
 const mongoose = require('mongoose');
-const router = require('express-router');
+const router = express.Router();
 
 
 
@@ -40,16 +40,23 @@ app.post("/index", (req,res)=>{
     user.username = req.body.username;
     user.password = req.body.password;
 
-    res.send("saved")
 
-    user.save((err)=>{
+
+    if(user.save()==true){
+
+        res.send("saved")
+
+    }else{
+        user.save((err)=>{
         console.log(err);
         return;
     })
+    }
+
 
 
 
 })
 
-app.listen(3000);
+app.listen(8080);
 module.exports =  db;
