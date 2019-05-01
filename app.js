@@ -20,17 +20,17 @@ db.once('open', ()=>{
 
 let User = require('./models/user');
 
-//app.get('/', function (req, res) {
 
-//})
-
-app.use( bodyParser.json());
-
+//use
+app.use(express.static(__dirname + './public'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use(express.static(__dirname + '/public'));
+
+
+console.log(app.path());
 
 //Post user data to database
 
@@ -41,25 +41,17 @@ app.post("/index", (req,res)=>{
     user.password = req.body.password;
 
 
+res.send("saved")
 
-    if(
-
-
-        user.save(user)==true){
-
-        res.send("saved")
-
-    }else{
-        user.save((err)=>{
+    user.save((err)=>{
         console.log(err);
         return;
     })
-    }
 
 
 
 
 })
 
-app.listen(8080);
+app.listen(8000);
 module.exports =  db;
