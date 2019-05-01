@@ -42,7 +42,10 @@ app.post("/index", (req,res)=>{
 
 
 
-    if(user.save()==true){
+    if(
+
+
+        user.save(user)==true){
 
         res.send("saved")
 
