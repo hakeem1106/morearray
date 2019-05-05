@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const app = express();
 const bodyParser= require('body-parser');
 const mongoose = require('mongoose');
@@ -22,7 +22,7 @@ let User = require('./models/user');
 
 
 //use
-app.use(express.static(__dirname + './public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({
 
 
 
-console.log(app.path());
+
 
 //Post user data to database
 
@@ -55,3 +55,4 @@ res.send("saved")
 
 app.listen(8000);
 module.exports =  db;
+*/
